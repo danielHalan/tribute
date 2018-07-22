@@ -205,20 +205,30 @@ class Tribute {
                 return
             }
 
+            let newItems = '';
+
             let items = this.search.filter(this.current.mentionText, values, {
                 pre: '<span>',
                 post: '</span>',
                 extract: (el) => {
                     if (typeof this.current.collection.lookup === 'string') {
-                        return el[this.current.collection.lookup]
+                        let v = el[this.current.collection.lookup]; 
+                        newItems += v;
+                        return v;
                     } else if (typeof this.current.collection.lookup === 'function') {
-                        return this.current.collection.lookup(el)
+                        let v = this.current.collection.lookup(el);
+                        newItems += v;
+                        return v;
                     } else {
                         throw new Error('Invalid lookup attribute, lookup must be string or function.')
                     }
                 }
             })
 
+            if (this.current.currentItems === newItems)
+                return;
+            else this.current.currentItems = newItems;
+            
             this.current.filteredItems = items
 
 
