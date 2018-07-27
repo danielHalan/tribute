@@ -208,7 +208,7 @@ class Tribute {
             let newItems = '';
 
             let items = this.search.filter(this.current.mentionText, values, {
-                pre: '<span>',
+                pre: '<span class="tribute-match-hl">',
                 post: '</span>',
                 extract: (el) => {
                     if (typeof this.current.collection.lookup === 'string') {

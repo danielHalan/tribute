@@ -19,7 +19,7 @@
     cursor: pointer; }
     .tribute-container li.highlight, .tribute-container li:hover {
       background: #ddd; }
-    .tribute-container li span {
+    .tribute-container li span.tribute-match-hl {
       font-weight: bold; }
     .tribute-container li.no-match {
       cursor: default; }
